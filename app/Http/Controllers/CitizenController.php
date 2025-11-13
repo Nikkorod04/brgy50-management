@@ -108,7 +108,7 @@ class CitizenController extends Controller
 
         // Calculate age from birthdate
         $birthdate = \Carbon\Carbon::parse($validated['birthdate']);
-        $age = now()->diffInYears($birthdate);
+        $age = (int)$birthdate->diffInYears(now());
         // Ensure age is never negative
         $validated['age'] = max(0, $age);
 
@@ -197,7 +197,7 @@ class CitizenController extends Controller
 
         // Calculate age from birthdate
         $birthdate = \Carbon\Carbon::parse($validated['birthdate']);
-        $age = now()->diffInYears($birthdate);
+        $age = (int)$birthdate->diffInYears(now());
         // Ensure age is never negative
         $validated['age'] = max(0, $age);
 
