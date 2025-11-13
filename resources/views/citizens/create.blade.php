@@ -203,9 +203,11 @@
                                 type="text" 
                                 name="barangay" 
                                 value="{{ old('barangay', $citizen->barangay ?? 'Barangay 50') }}"
-                                class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg dark:bg-gray-700 dark:text-white"
+                                class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg dark:bg-gray-700 dark:text-white bg-gray-100 dark:bg-gray-600 cursor-not-allowed"
                                 required
+                                disabled
                             >
+                            <input type="hidden" name="barangay" value="{{ old('barangay', $citizen->barangay ?? 'Barangay 50') }}">
                         </div>
 
                         <!-- City -->
@@ -217,9 +219,11 @@
                                 type="text" 
                                 name="city" 
                                 value="{{ old('city', $citizen->city ?? 'Tacloban City') }}"
-                                class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg dark:bg-gray-700 dark:text-white"
+                                class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg dark:bg-gray-700 dark:text-white bg-gray-100 dark:bg-gray-600 cursor-not-allowed"
                                 required
+                                disabled
                             >
+                            <input type="hidden" name="city" value="{{ old('city', $citizen->city ?? 'Tacloban City') }}">
                         </div>
 
                         <!-- Province -->
@@ -231,9 +235,11 @@
                                 type="text" 
                                 name="province" 
                                 value="{{ old('province', $citizen->province ?? 'Leyte') }}"
-                                class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg dark:bg-gray-700 dark:text-white"
+                                class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg dark:bg-gray-700 dark:text-white bg-gray-100 dark:bg-gray-600 cursor-not-allowed"
                                 required
+                                disabled
                             >
+                            <input type="hidden" name="province" value="{{ old('province', $citizen->province ?? 'Leyte') }}">
                         </div>
 
                         <!-- Postal Code -->
@@ -244,9 +250,11 @@
                             <input 
                                 type="text" 
                                 name="postal_code" 
-                                value="{{ old('postal_code', $citizen->postal_code ?? '') }}"
-                                class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg dark:bg-gray-700 dark:text-white"
+                                value="{{ old('postal_code', $citizen->postal_code ?? '6500') }}"
+                                class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg dark:bg-gray-700 dark:text-white bg-gray-100 dark:bg-gray-600 cursor-not-allowed"
+                                disabled
                             >
+                            <input type="hidden" name="postal_code" value="{{ old('postal_code', $citizen->postal_code ?? '6500') }}">
                         </div>
                     </div>
                 </div>
@@ -276,12 +284,19 @@
                             <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                                 Educational Attainment
                             </label>
-                            <input 
-                                type="text" 
+                            <select 
                                 name="educational_attainment" 
-                                value="{{ old('educational_attainment', $citizen->educational_attainment ?? '') }}"
                                 class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg dark:bg-gray-700 dark:text-white"
                             >
+                                <option value="">Select Educational Attainment</option>
+                                <option value="No Formal Education" {{ old('educational_attainment', $citizen->educational_attainment ?? '') == 'No Formal Education' ? 'selected' : '' }}>No Formal Education</option>
+                                <option value="Elementary" {{ old('educational_attainment', $citizen->educational_attainment ?? '') == 'Elementary' ? 'selected' : '' }}>Elementary</option>
+                                <option value="High School" {{ old('educational_attainment', $citizen->educational_attainment ?? '') == 'High School' ? 'selected' : '' }}>High School</option>
+                                <option value="Vocational" {{ old('educational_attainment', $citizen->educational_attainment ?? '') == 'Vocational' ? 'selected' : '' }}>Vocational</option>
+                                <option value="Bachelor's Degree" {{ old('educational_attainment', $citizen->educational_attainment ?? '') == "Bachelor's Degree" ? 'selected' : '' }}>Bachelor's Degree</option>
+                                <option value="Master's Degree" {{ old('educational_attainment', $citizen->educational_attainment ?? '') == "Master's Degree" ? 'selected' : '' }}>Master's Degree</option>
+                                <option value="Doctorate" {{ old('educational_attainment', $citizen->educational_attainment ?? '') == 'Doctorate' ? 'selected' : '' }}>Doctorate</option>
+                            </select>
                         </div>
 
                         <!-- Notes -->
